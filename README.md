@@ -1,6 +1,8 @@
 # CovidInfo
 Utilites for getting info about Covid19 in histogram form and in csv file
 
+It should be launch from command line
+
 Data is taken from Wikipedia
 
 It give info in four presentations:
