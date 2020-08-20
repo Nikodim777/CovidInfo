@@ -29,9 +29,12 @@ datapop = {} #Словарь содержащий инфу о населении
 
 for i in range(1,len(pops)):
     if pops[i].th.text != "–\n" and pops[i].th.text != "" and pops[i].th.text != "—\n": #Отсеиваем псевдо-страны
-        tdnum = pops[i].find("td", {"style":"text-align:right"}) #Получаем численность населения
-        datapop[pops[i].td.a.text] = int(tdnum.text.replace(",","")) #Создаём запись о стране
-
+        try:
+            tdnum = pops[i].find("td", {"style":"text-align:right"}) #Получаем численность населения
+            datapop[pops[i].td.a.text] = int(tdnum.text.replace(",","")) #Создаём запись о стране
+        except:
+            continue
+        
 datacov = {} #Словарь содержащий инфу о заболеваемости в странах
 
 for i in range(0,len(covs)):
